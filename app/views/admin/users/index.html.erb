@@ -1,2 +1,22 @@
-<h1>Hello</h1>
 
+<style>
+table, th, td
+{
+  border:1px solid black;
+}
+</style>
+
+<table>
+  <tr>
+    <th>Full_name</th>
+    <th>Admin</th>
+  </tr>
+
+  <% @users.each do |user| %>
+    <tr>
+    <td> <%= user.full_name %>
+    <td> <%= user.admin %>
+    </tr>
+  <% end %>
+  
+</table>

@@ -1,7 +1,16 @@
 class Admin::UsersController < ApplicationController
   
+  before_filter :admin?
+
   def index
-    @user = User.all
+    @users = User.all
+  end
+
+  def admin?
+    if current_user.admin == false
+      flash[:alert] = "You must be an admin!"
+      redirect_to movies_path
+    end
   end
 
   # def create
