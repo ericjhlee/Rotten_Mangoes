@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
   before_filter :admin?
 
   def index
-    @users = User.all
+    @users = User.all.page(params[:page]).per(5)
   end
 
   def admin?
@@ -12,6 +12,7 @@ class Admin::UsersController < ApplicationController
       redirect_to movies_path
     end
   end
+  
 
   # def create
   #   User.create(admin_user_params)
