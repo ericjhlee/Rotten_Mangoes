@@ -8,8 +8,8 @@ RottenMangoes::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   root to: 'movies#index'
 
-  scope '/admin' do 
-    resources :users, :comments
+  namespace :admin do 
+    resources :users
   end
 
 end
