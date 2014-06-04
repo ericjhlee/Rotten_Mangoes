@@ -42,6 +42,10 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
+  def search
+    @movies = Movie.where("title like ? AND director like?", "%#{params[:title]}%", "%#{params[:director]}%")  
+  end
+
   protected
 
   def movie_params

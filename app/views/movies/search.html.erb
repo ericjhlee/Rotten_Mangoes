@@ -1,0 +1,10 @@
+<% @movies.each do |movie| %>
+
+  <br>
+  <%= link_to image_tag(movie.image_url.to_s), movie_path(movie) %>
+  <br>
+  <%= movie.title %>
+  <br>
+  <%= movie.director %>
+
+<% end %>

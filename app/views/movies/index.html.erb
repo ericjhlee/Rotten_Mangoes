@@ -1,4 +1,14 @@
 <h1>Rotten Mangoes</h1>
+<%= form_tag search_movies_path, :method => :get do %>
+  <%= label_tag :movies, "Search By:" %>
+  <br>
+  Title<%= text_field_tag :title %>
+  <br>
+  Director<%= text_field_tag :director %>
+  <%= submit_tag "Search" %>
+<% end %>
+<br>
+<br>
 <%= link_to "Submit a movie!", new_movie_path %>
 <hr>
 <% @movies.each do |movie| %>
