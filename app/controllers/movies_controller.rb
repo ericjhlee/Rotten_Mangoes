@@ -43,7 +43,16 @@ class MoviesController < ApplicationController
   end
 
   def search
-    @movies = Movie.where("title like ? AND director like?", "%#{params[:title]}%", "%#{params[:director]}%")  
+    case params[:duration]
+    when "1"
+      runtime_in_minutes = "AND runtime_in_minutes < 90"
+    when "2"
+      runtime_in_minutes = "AND runtime_in_minutes >= 90 AND runtime_in_minutes <= 120"
+    when "3"
+      runtime_in_minutes = "AND runtime_in_minutes > 120"
+    end
+
+    @movies = Movie.where("title like ? AND director like? #{runtime_in_minutes}", "%#{params[:title]}%", "%#{params[:director]}%")  
   end
 
   protected
