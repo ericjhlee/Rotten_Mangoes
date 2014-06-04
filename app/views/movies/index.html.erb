@@ -3,9 +3,7 @@
 <%= form_tag search_movies_path, :method => :get do %>
   <%= label_tag :movies, "Search By:" %>
   <br>
-  Title<%= text_field_tag :title %>
-  <br>
-  Director<%= text_field_tag :director %>
+  Title Or Director <%= text_field_tag :movie %>
   <br>
   <%= select_tag(:duration, options_for_select([["Under 90 minutes", 1], ["Between 90 and 120 minutes", 2], ["Over 120 minutes", 3]]), {include_blank: true}) %>
 

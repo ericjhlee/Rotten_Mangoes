@@ -52,7 +52,7 @@ class MoviesController < ApplicationController
       runtime_in_minutes = "AND runtime_in_minutes > 120"
     end
 
-    @movies = Movie.search(params[:title], params[:director], runtime_in_minutes)  
+    @movies = Movie.search(params[:movie], runtime_in_minutes)  
   end
 
   protected

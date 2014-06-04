@@ -24,7 +24,7 @@ class Movie < ActiveRecord::Base
     reviews.sum(:rating_out_of_ten)/reviews.size
   end
 
-  scope :search, -> title, director, runtime_in_minutes { where "title like ? AND director like ? #{runtime_in_minutes}", "%#{title}%", "%#{director}%"}
+  scope :search, -> movie, runtime_in_minutes { where "title like ? OR director like ? #{runtime_in_minutes}", "%#{movie}%", "%#{movie}%"}
 
   protected
 
