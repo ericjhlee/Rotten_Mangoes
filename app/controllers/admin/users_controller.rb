@@ -13,6 +13,14 @@ class Admin::UsersController < ApplicationController
     end
   end
   
+  def destroy
+    @user = User.find(params[:id])
+    if @user.destroy
+       UserMailer.bye_email(@user).deliver
+    end
+    redirect_to admin_users_path
+  end
+
 
   # def create
   #   User.create(admin_user_params)
